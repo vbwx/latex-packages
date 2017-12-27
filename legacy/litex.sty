@@ -1,0 +1,84 @@
+%% LiTeX-Stylefile: Vereinfachungen fuer Skripten und sonstige Dokumente
+%% (C) 10/2004 by Bernhard Waldbrunner
+
+\newcommand{\NWTKdoc}[1][Skriptum]{%
+\title{Netzwerktechnik\\#1\bigskip\\
+LiTec\\Informationstechnologie-Abteilung}
+\author{\copyright\ by Bernhard Waldbrunner}
+\date{\today}}
+
+\newlength{\LGeneral}
+\newlength{\LSubj}
+\newlength{\LAuthor}
+\newlength{\LTitle}
+\newcounter{Homework}
+\setcounter{Homework}{0}
+\newcommand{\stepHomework}{\stepcounter{Homework}%
+\ifnum\theHomework=1 \def\HWnum{st}
+  \else\ifnum\theHomework=2 \def\HWnum{nd}
+  \else\ifnum\theHomework=3 \def\HWnum{rd}
+  \else \def\HWnum{th}
+\fi\fi\fi
+\theHomework\tSup{\HWnum}}
+
+\newcommand{\stepUebung}{\stepcounter{Homework}%
+\theHomework.}
+
+\newcommand{\DefineExerciseDoc}[3]{%
+\usepackage{bookman,a4wide,array}
+\usepackage{vbstp}
+\renewcommand{\baselinestretch}{2}%
+%
+\def\General{#1}
+\def\Subj{#2}
+\newcommand{\Title}{#3}
+\def\Author{Bernhard Waldbrunner}
+\settowidth{\LGeneral}{\General\ }
+\settowidth{\LSubj}{\Subj\ }
+\settowidth{\LAuthor}{\Author\ }
+\setlength{\LTitle}{\textwidth}
+\addtolength{\LTitle}{-\LAuthor}
+\addtolength{\LTitle}{-\LGeneral}
+\addtolength{\LTitle}{-\LSubj}
+\addtolength{\LTitle}{-73pt}}
+
+\newcommand{\fullTitle}{\Title}
+\newcommand{\homework}{%
+\renewcommand{\fullTitle}{\stepHomework\ \Title}
+\newpage
+\noindent\begin{tabular}{|c|c|>{\centering}p{\LTitle}|c|}
+\hline
+\General & \Subj & \fullTitle & \Author\\
+\hline
+\end{tabular}}
+
+\newcommand{\DefineUebungDoc}[3]{%
+\usepackage{a4wide,array}
+\usepackage{ngerman}[11,13]
+%
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1.5ex plus 0.5ex minus 0.5ex}
+%
+\def\General{#1}
+\def\Subj{#2}
+\newcommand{\Title}{#3}
+\def\Author{Bernhard Waldbrunner}
+\settowidth{\LGeneral}{\General\ }
+\settowidth{\LSubj}{\Subj\ }
+\settowidth{\LAuthor}{\Author\ }
+\setlength{\LTitle}{\textwidth}
+\addtolength{\LTitle}{-\LAuthor}
+\addtolength{\LTitle}{-\LGeneral}
+\addtolength{\LTitle}{-\LSubj}
+\addtolength{\LTitle}{-38.3pt}}
+
+\newcommand{\uebung}{%
+\renewcommand{\fullTitle}{\stepUebung\ \Title}
+\newpage
+\noindent\begin{tabular}{|c|c|>{\centering}p{\LTitle}|c|}
+\hline
+\General & \Subj & \fullTitle & \Author\\
+\hline
+\end{tabular}}
+
+%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

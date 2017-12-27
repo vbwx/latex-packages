@@ -1,0 +1,182 @@
+%% <vbstp.sty>: Vb-A_Style_Packages 1.4 for LaTeX
+%% (C) 2002-2004 Vb-A Development / by Bernhard Waldbrunner -- 2005/05/01
+
+\typeout{ }
+\typeout{%
+******************************************************************%
+************}
+\typeout{Vb-A_Style_Packages 1.4 for LaTeX are loaded.}
+\typeout{vbstp 1.4 (C) 2002-2005 Vb-A Development / by Bernhard Waldbrunner}
+
+%% Anfang der Makro-Definitionen ##############################################
+\newcommand{\N}{\\[1ex]}
+\newcommand{\n}{\\[0.5ex]}
+
+%% Einige Textvereinfachende Befehle; dieser Stylefile wird noch erweitert!
+\newcommand{\chem}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\Index}[1]{#1\index{#1}}
+\newcommand{\iSee}[2]{#1\index{#1|see{#2}}}
+
+%% Makros fuer die Zusammenarbeit mit ChemTeX
+%% Bei Problemen kann man die Laenge \xRaise redefinieren!
+\newlength\xRaise
+\setlength\xRaise{7ex}
+\newcommand{\qxq}[1][+]{%
+\qquad\raisebox{\xRaise}{#1}\qquad}
+\newcommand{\qx}[1][+ $\cdots$]{%
+\qquad\raisebox{\xRaise}{#1}}
+\newcommand{\xq}[1][$\cdots$ +]{%
+\raisebox{\xRaise}{#1}\qquad}
+
+%% Abschnitte, Überschriften
+\newcommand{\Sec}[2][]{%
+\def\temparg{#1}
+\ifx\temparg\empty
+  \section*{#2}
+  \addcontentsline{toc}{section}{#2}
+\else
+  \section*[#1]{#2}
+  \addcontentsline{toc}{section}{#1}
+\fi}
+
+\newcommand{\cSec}[2][]{%
+\def\temparg{#1}
+\ifx\temparg\empty
+  \centerline{\section*{#2}}
+  \addcontentsline{toc}{section}{#2}
+\else
+  \centerline{\section*[#1]{#2}}
+  \addcontentsline{toc}{section}{#1}
+\fi}
+
+\newcommand{\Ssec}[2][]{%
+\def\temparg{#1}
+\ifx\temparg\empty
+  \subsection*{#2}
+  \addcontentsline{toc}{subsection}{#2}
+\else
+  \section*[#1]{#2}
+  \addcontentsline{toc}{subsection}{#1}
+\fi}
+
+\newcommand{\Sssec}[2][]{%
+\def\temparg{#1}
+\ifx\temparg\empty
+  \subsubsection*{#2}
+  \addcontentsline{toc}{subsubsection}{#2}
+\else
+  \section*[#1]{#2}
+  \addcontentsline{toc}{subsubsection}{#1}
+\fi}
+
+\newcommand{\Chap}[2][]{%
+\def\temparg{#1}
+\ifx\temparg\empty
+  \chapter*{#2}
+  \addcontentsline{toc}{chapter}{#2}
+\else
+  \section*[#1]{#2}
+  \addcontentsline{toc}{chapter}{#1}
+\fi}
+
+%% Benutzerdefinierter Counter, der sich bei der Ausgabe automatisch erhoeht
+\newcounter{Usrcount}
+\providecommand{\theUsrcount}{\arabic{Usrcount}}
+
+\newcommand{\initcounter}{%
+\setcounter{Usrcount}{0}}
+
+\newcommand{\usrcount}[1][1]{%
+\addtocounter{Usrcount}{#1}\theUsrcount}
+
+%% Hoch- & Tiefgestellter Text, normale Roman-Schrift
+\newcommand{\Sup}[1]{\raisebox{0.8ex}{#1}}
+\newcommand{\tSup}[1]{\raisebox{0.8ex}{\scriptsize{#1}}}
+\newcommand{\Sub}[1]{\raisebox{-0.8ex}{#1}}
+\newcommand{\tSub}[1]{\raisebox{-0.6ex}{\scriptsize{#1}}}
+
+%% Kurze Befehle fuer Sonderzeichen
+\newcommand{\at}{\textasciitilde}
+\newcommand{\ac}{\textasciicircum}
+\newcommand{\bs}{\textbackslash}
+\newcommand{\p}{\textbar}
+\newcommand{\gr}{\textgreater}
+\newcommand{\ls}{\textless}
+\newcommand{\Gr}{\ensuremath{>\!\!>}}
+\newcommand{\Ls}{\ensuremath{<\!\!<}}
+\newcommand{\de}{\ensuremath{^{\tiny{\circ}}}}
+\newcommand{\dC}{\,\ensuremath{^{\tiny{\circ}}}C}
+\newcommand{\dF}{\,\ensuremath{^{\tiny{\circ}}}F}
+\newcommand{\ip}{\,\%}
+\newcommand{\lra}{\ensuremath{\longrightarrow}}
+\newcommand{\lla}{\ensuremath{\longleftarrow}}
+\newcommand{\Lla}{\ensuremath{\Longleftarrow}}
+\newcommand{\Lra}{\ensuremath{\Longrightarrow}}
+\providecommand{\ra}{\ensuremath{\rightarrow}}
+\providecommand{\la}{\ensuremath{\leftarrow}}
+\newcommand{\La}{\ensuremath{\Leftarrow}}
+\newcommand{\Ra}{\ensuremath{\Rightarrow}}
+\newcommand{\lRa}{\ensuremath{\leftrightarrow}}
+\newcommand{\llRa}{\ensuremath{\longleftrightarrow}}
+\newcommand{\LRa}{\ensuremath{\Leftrightarrow}}
+\newcommand{\LlRa}{\ensuremath{\Longleftrightarrow}}
+\newcommand{\ua}{\ensuremath{\uparrow}}
+\newcommand{\da}{\ensuremath{\downarrow}}
+\newcommand{\Ua}{\ensuremath{\Uparrow}}
+\newcommand{\Da}{\ensuremath{\Downarrow}}
+\newcommand{\uda}{\ensuremath{\updownarrow}}
+\newcommand{\Uda}{\ensuremath{\Updownarrow}}
+\newcommand{\TM}{\texttrademark}
+\newcommand{\reg}{\tSup{\textregistered}}
+\newcommand{\Reg}{\textregistered}
+
+\newcommand{\Fq}[1]{\frq #1\flq}
+\newcommand{\Gq}[1]{\glq #1\grq}
+% Hier eher "` ... "' und "> ... "< verwenden!
+\newcommand{\Fqq}[1]{\frqq #1\flqq}
+\newcommand{\Gqq}[1]{\glqq #1\grqq}
+
+%% vbTeX-Logo
+\newcommand{\vbTeX}{\ensuremath{\mbox{v}\!\mbox{b}\!\mbox{\TeX}}}
+
+% Befehle in der Typewriter-Schrift -> besser: verbatim-Befehl nutzen
+%                                   -> \verb~\kommando~ Text...
+\newcommand{\cmd}[1]{%
+\texttt{\bs #1}}
+
+% "Poor Man's Bold": Wenn keine echte Fettschrift vorhanden ist ...
+\newcommand{\PMB}[1]{\makebox[0.115ex][l]{#1}\makebox{#1}}
+
+\newcommand{\X}[2]{%
+\count1=0
+\loop
+\ifnum\count1<#1
+  {#2}
+  \advance\count1 by 1
+\repeat}
+
+%% kuerzere Befehle fuer Auszeichnungen
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\uul}[1]{\underline{\underline{#1}}}
+\newcommand{\URL}[2][http://]{%
+\underline{\sffamily #1#2}}
+\newcommand{\eMail}[2]{%
+\underline{\sffamily #1@#2}}
+
+\newcommand{\cl}[1]{\centerline{#1}}
+\newcommand{\Center}[1]{%
+\begin{center}
+#1
+\end{center}}
+
+%% Mathematik-Befehle
+\newcommand{\unit}[1]{\ensuremath{\,\mathrm{#1}}}
+\newcommand{\dif}{\,\mathrm{d}}
+
+%% Ende der Makro-Definitionen ################################################
+
+\typeout{%
+******************************************************************%
+************}
+\typeout{ }
+%% END OF FILE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

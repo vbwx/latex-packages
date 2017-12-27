@@ -1,0 +1,25 @@
+%% <vbdefs.sty> -- Some definitions for easier use of LaTeX
+%% e.g.: color, tabular, math-operators, etc.
+%% (C) 2002-2005 Vb-A Development / by Bernhard Waldbrunner -- 2005/01/18
+
+\typeout{  Stylefile [vbdefs] is used. -- (C) 01/2005 by Bernhard Waldbrunner}
+
+%% Definitionen fuer oft verwendete Farbwerte %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{color}
+
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{medgray}{gray}{0.5}
+\definecolor{darkgray}{gray}{0.2}
+\definecolor{textgray}{gray}{0.7}
+
+%% Diverse komplette Layouts
+\newcommand{\LayoutAbh}[2]{%
+\usepackage{bookman,fancyhdr,a4wide,pifont,fancyhdr}
+\usepackage{ngerman}[11,13]
+\usepackage{stdv}
+
+\pagestyle{fancy}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2ex}
+\lfoot[#2]{#1}
+\rfoot[#1]{#2}}

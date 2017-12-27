@@ -1,0 +1,124 @@
+%% <vobj.sty> -- diverse Befehle fuer (gleitende) Objekte in LaTeX
+%% (C) 2002-2004 Vb-A Development / by Bernhard Waldbrunner -- 2004/08/11
+
+\typeout{  Stylefile [vobj] is used. -- (C) 08/2004 by Bernhard Waldbrunner}
+
+\def\empty{}
+
+%% gleitende Grafiken, zentriert bzw. ueber Seitenbreite verteilt
+\newcommand{\fig}[4][]{%
+\begin{figure}[!htbp]
+\centering
+\includegraphics{#2}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#3}
+\else \caption[#1]{#3}
+\fi
+\label{#4}
+\end{figure}}
+
+\newcommand{\figTwo}[5][]{%
+\begin{figure}[!htbp]
+\includegraphics{#2}\hfill \includegraphics{#3}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#4}
+\else \caption[#1]{#4}
+\fi
+\label{#5}
+\end{figure}}
+
+\newcommand{\figThree}[6][]{%
+\begin{figure}[!htbp]
+\includegraphics{#2}\hfill \includegraphics{#3}\hfill
+\includegraphics{#4}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#5}
+\else \caption[#1]{#5}
+\fi
+\label{#6}
+\end{figure}}
+
+\newcommand{\figFour}[7][]{%
+\begin{figure}[!htbp]
+\includegraphics{#2}\hfill \includegraphics{#3}\hfill
+\includegraphics{#4}\hfill \includegraphics{#5}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#6}
+\else \caption[#1]{#6}
+\fi
+\label{#7}
+\end{figure}}
+
+\newcommand{\figFive}[8][]{%
+\begin{figure}[!htbp]
+\includegraphics{#2}\hfill \includegraphics{#3}\hfill
+\includegraphics{#4}\hfill \includegraphics{#5}\hfill
+\includegraphics{#6}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#7}
+\else \caption[#1]{#7}
+\fi
+\label{#8}
+\end{figure}}
+
+\newcommand{\figSix}[9][]{%
+\begin{figure}[!htbp]
+\includegraphics{#2}\hfill \includegraphics{#3}\hfill
+\includegraphics{#4}\hfill \includegraphics{#5}\hfill
+\includegraphics{#6}\hfill \includegraphcis{#7}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#8}
+\else \caption[#1]{#8}
+\fi
+\label{#9}
+\end{figure}}
+
+\newcommand{\sfig}[5][]{%
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale=#3]{#2}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#4}
+\else \caption[#1]{#4}
+\fi
+\label{#5}
+\end{figure}}
+
+\newcommand{\sfigTwo}[7][]{%
+\begin{figure}[!htbp]
+\includegraphics[scale=#3]{#2}\hfill \includegraphics[scale=#5]{#4}
+\def\temparg{#1}
+\ifx\temparg\empty \caption{#6}
+\else \caption[#1]{#6}
+\fi
+\label{#7}
+\end{figure}}
+
+\newlength{\tempobjwidth}
+
+%% Formeln mit Erklaerungen
+\newcommand{\eqndesc}[2]{%
+\raisebox{3.9ex}{\begin{minipage}[t]{0.35\textwidth}
+\begin{displaymath}
+\begin{split}
+#1
+\end{split}
+\end{displaymath}
+\end{minipage}}\hfill
+\begin{minipage}[t]{0.6\textwidth}
+\raggedright
+\footnotesize{#2}\raisebox{2.8ex}{\,}
+\end{minipage}}
+
+%% "zweispaltiger" Satz (z.B. Illustration neben Formeln)
+\newcommand{\divpar}[3][0.5\textwidth]{%
+\setlength{\tempobjwidth}{1\textwidth}
+\addtolength{\tempobjwidth}{-#1}
+\raisebox{-8ex}{\parbox[t]{#1}{#2}}\parbox[t]{\tempobjwidth}{#3}}
+
+\newcommand{\Divpar}[3][0.5\textwidth]{%
+\setlength{\tempobjwidth}{1\textwidth}
+\addtolength{\tempobjwidth}{-#1}
+\raisebox{8ex}{\parbox[t]{#1}{#2}}\parbox[t]{\tempobjwidth}{#3}}
+
+%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,129 @@
+%% stdv -- Standard-Stylefile for vbstp
+%% (C) 2002-2004 Vb-A Development / by Bernhard Waldbrunner -- 2004/08/07
+
+\typeout{  Stylefile [stdv] is used. -- (C) 08/2004 by Bernhard Waldbrunner}
+
+%% Zaehler und Befehle fuer ein Beispiel
+\newcounter{example}[section]
+\providecommand{\theexample}{\arabic{example}}
+
+\newcommand{\Examplecaption}{\Bspit\ \emph{\theexample:}}
+
+%% Befehle fuer haeufig gebrauchte Woerter mit Hervorhebung
+\def\bspIt{\emph{Bsp.}}
+\def\bspBf{\textbf{Bsp.}}
+\def\bspIB{\emph{\textbf{Bsp.}}}
+\def\BspIt{\emph{Beispiele:}}
+\def\BspBf{\textbf{Beispiele:}}
+\def\BspIB{\emph{\textbf{Beispiele:}}}
+\def\Bspit{\emph{Beispiel}}
+\def\Bspbf{\textbf{Beispiel}}
+\def\Bspib{\emph{\textbf{Beispiel}}}
+
+\def\zB{zum Beispiel:\xspace}
+\def\zb{zum Beispiel}
+\def\ZB{Zum Beispiel:\xspace}
+\def\Zb{Zum Beispiel}
+\def\szB{z.\,B.}
+\def\sZB{Z.\,B.}
+\def\SzB{z.\,B.:}
+\def\SZB{Z.\,B.:}
+
+%% Befehl fuer ein Beispiel
+\newcommand{\example}[2][\Examplecaption]{%
+\begin{list}{#1}{\usecounter{example}}
+\item #2
+\end{list}}
+
+%% diverse Boxen mit Symbolkennzeichnungen
+\newlength{\tempwidth}
+\newlength{\hboxdif}
+\setlength{\hboxdif}{1.0pt}
+
+\newcommand{\question}[1]{%
+\begin{list}{\raisebox{-1ex}{\huge{\sffamily\bfseries\color{medgray}?}}}{%
+\setlength{\tempwidth}{\textwidth} \addtolength{\tempwidth}{-\leftmargin}
+\addtolength{\tempwidth}{-\labelsep} \addtolength{\tempwidth}{-\hboxdif}}
+\item \colorbox{lightgray}{\parbox[t]{\tempwidth}{#1}}
+\end{list}}
+
+\newcommand{\note}[1]{%
+\begin{list}{\raisebox{-1ex}{\huge{\color{medgray}\ding{43}}}}{%
+\setlength{\tempwidth}{\textwidth} \addtolength{\tempwidth}{-\leftmargin}
+\addtolength{\tempwidth}{-\labelsep} \addtolength{\tempwidth}{-\hboxdif}}
+\item \colorbox{lightgray}{\parbox[t]{\tempwidth}{#1}}
+\end{list}}
+
+%% Kaestchen und Boxen
+\newcommand{\remember}[1]{%
+\begin{center} \fbox{\bfseries #1} \end{center}}
+
+%% verschiedene Listen und Aufzaehlungen
+\newenvironment{item0}{%
+\begin{list}{\labelitemi}{\setlength{\itemsep}{0in}
+\setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{descMD}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{##1#1}}}{\end{list}}
+
+\newenvironment{descBF}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1#1}}}}{\end{list}}
+
+\newenvironment{descTT}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\texttt{##1#1}}}}%
+{\end{list}}
+
+\newenvironment{descIT}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textit{##1#1}}}}%
+{\end{list}}
+
+\newenvironment{descSF}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textsf{##1#1}}}}%
+{\end{list}}
+
+\newenvironment{mydesc}[2][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{{#2 ##1#1}}}}%
+{\end{list}}
+
+\newenvironment{descUL}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\underline{##1#1}}}}%
+{\end{list}}
+
+\newenvironment{descITBF}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{\textit{##1#1}}}}}%
+{\end{list}}
+
+%% Listen ohne zusaetzlichen Abstand (\itemsep & \parsep)
+\newenvironment{descMD0}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{##1#1}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{descBF0}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{##1#1}}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{descTT0}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\texttt{##1#1}}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{descIT0}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textit{##1#1}}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{descSF0}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textsf{##1#1}}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{mydesc0}[2][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{{#2 ##1#1}}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{descUL0}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\underline{##1#1}}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+\newenvironment{descITBF0}[1][]{%
+\begin{list}{}{\renewcommand{\makelabel}[1]{\textbf{\textit{##1#1}}}%
+\setlength{\itemsep}{0in} \setlength{\parsep}{0in}}}{\end{list}}
+
+%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
