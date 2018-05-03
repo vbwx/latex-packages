@@ -6,9 +6,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{unimath}[2017/12/21 University Math]
 
+\newlength{\unilinebr}
+\setlength{\unilinebr}{6pt}
+
 \newcommand{\var}[1]{\ensuremath{\mathit{#1}}}
 \newcommand{\res}[1]{\ensuremath{\underline{\underline{#1}}}}
 \newcommand{\unit}[1]{\ensuremath{\:\text{#1}}}
 \newcommand{\ds}{\displaystyle}
+\newcommand{\br}{\\[\unilinebr]}
 
 \endinput
